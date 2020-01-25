@@ -1,10 +1,6 @@
 extends Node2D
 
-func _on_Stick_body_entered(body):
-	if (body.get_name() == 'Player'):
-		$GUI.show()
+var item;
 
-
-func _on_Stick_body_exited(body):
-	if (body.get_name() == 'Player'):
-		$GUI.hide()
+func _ready():
+	$GUI.listenTo($Items)
