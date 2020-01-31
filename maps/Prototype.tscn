@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Overworld.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/tiles.png" type="Texture" id=2]
-[ext_resource path="res://items/overworld/OveworldItem.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=4]
-[ext_resource path="res://assets/textures/player.png" type="Texture" id=5]
-[ext_resource path="res://huds/OverworldGui.tscn" type="PackedScene" id=6]
+[ext_resource path="res://items/overworld/OverworldItem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/items/Rock.tres" type="Resource" id=4]
+[ext_resource path="res://assets/items/Stick.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://scripts/OverworldPlayer.gd" type="Script" id=6]
+[ext_resource path="res://assets/textures/player.png" type="Texture" id=7]
+[ext_resource path="res://huds/OverworldGui.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -69,38 +71,58 @@ __meta__ = {
 }
 
 [node name="Items" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="OverworldItem" parent="Items" instance=ExtResource( 3 )]
-
-[node name="OverworldItem2" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 304, 144 )
+position = Vector2( 160, 192 )
+item = ExtResource( 4 )
 
 [node name="OverworldItem3" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 352, 208 )
+position = Vector2( 192, 320 )
+item = ExtResource( 4 )
 
-[node name="OverworldItem4" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 256, 288 )
+[node name="OverworldItem11" parent="Items" instance=ExtResource( 3 )]
+position = Vector2( 240, 448 )
+item = ExtResource( 4 )
 
-[node name="OverworldItem5" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 192, 368 )
+[node name="OverworldItem12" parent="Items" instance=ExtResource( 3 )]
+position = Vector2( 304, 480 )
+item = ExtResource( 4 )
 
 [node name="OverworldItem6" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 256, 416 )
+position = Vector2( 432, 176 )
+item = ExtResource( 4 )
+
+[node name="OverworldItem2" parent="Items" instance=ExtResource( 3 )]
+position = Vector2( 144, 112 )
+item = ExtResource( 5 )
+
+[node name="OverworldItem4" parent="Items" instance=ExtResource( 3 )]
+position = Vector2( 304, 144 )
+item = ExtResource( 5 )
+
+[node name="OverworldItem5" parent="Items" instance=ExtResource( 3 )]
+position = Vector2( 368, 224 )
+item = ExtResource( 5 )
 
 [node name="OverworldItem7" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 96, 376 )
+position = Vector2( 112, 288 )
+item = ExtResource( 5 )
 
 [node name="OverworldItem8" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 432, 136 )
+position = Vector2( 112, 320 )
+item = ExtResource( 5 )
 
 [node name="OverworldItem9" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 400, 48 )
+position = Vector2( 80, 384 )
+item = ExtResource( 5 )
+
+[node name="OverworldItem10" parent="Items" instance=ExtResource( 3 )]
+position = Vector2( 288, 448 )
+item = ExtResource( 5 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 88, 119 )
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -109,7 +131,7 @@ __meta__ = {
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -119,4 +141,4 @@ drag_margin_top = 0.5
 drag_margin_right = 0.5
 drag_margin_bottom = 0.5
 
-[node name="GUI" parent="." instance=ExtResource( 6 )]
+[node name="GUI" parent="." instance=ExtResource( 8 )]

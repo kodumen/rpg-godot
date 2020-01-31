@@ -1,6 +1,6 @@
 extends Node2D
 
-var item;
-
 func _ready():
-	$GUI.listenTo($Items)
+	$GUI.listen_to($Items)
+	$Player.listen_to($Items)
+	pass
