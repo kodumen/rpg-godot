@@ -21,6 +21,7 @@ func _on_OverworldItem_body_exited(body):
 
 func interact(player):
 	emit_signal("player_interacted", self, player)
+	player.addToInventory(self.item)
 	queue_free()
 	
 func get_item_name():

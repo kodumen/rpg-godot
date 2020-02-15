@@ -8,3 +8,4 @@ script = ExtResource( 2 )
 name = "Rock"
 interaction_message = "Take"
 image = ExtResource( 1 )
+type = "Item"

@@ -37,3 +37,15 @@ func _on_entered_item(item, player):
 func _interact_with_item():
 	if active_item and Input.is_action_pressed("interact"):
 		active_item.interact(self)
+
+func addToInventory(item: Resource):
+	$Inventory.add(item)
+
+
+func _on_Monster_body_entered(body):
+	if body != self:
+		return
+	
+		
+		
+		

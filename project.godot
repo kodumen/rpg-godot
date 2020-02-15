@@ -19,14 +19,19 @@ config/name="rpg"
 run/main_scene="res://maps/Prototype.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Messenger="*res://scripts/Messenger.gd"
+ControlManager="*res://scripts/ControlManager.gd"
+
 [debug]
 
 gdscript/warnings/unassigned_variable=false
 
 [display]
 
-window/size/width=256
-window/size/height=256
+window/size/width=640
+window/size/height=480
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

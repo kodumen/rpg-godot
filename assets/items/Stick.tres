@@ -12,5 +12,6 @@ animations = [ {
 } ]
 script = ExtResource( 2 )
 name = "Stick"
-interaction_message = "Take"
+interaction_message = "Equip"
 image = ExtResource( 1 )
+type = "Weapon"
