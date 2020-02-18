@@ -18,14 +18,15 @@ func display(text: String):
 		ControlManager.focus_on(self)
 	visible = true
 	_set_text(text)
-	next_indicator.visible = false
+	hide_indicator()
 
 
 func _on_Tween_tween_all_completed():
-	next_indicator.visible = true
+	show_indicator()
 	ignore_input = false
 	
 	
+# warning-ignore:unused_argument
 func _process(delta):
 	if _pressed_next():
 		ignore_input = true
@@ -48,3 +49,9 @@ func _set_text(text: String):
 		label.percent_visible, 1, 1)
 	if not tween.is_active:
 		tween.start()
+
+func show_indicator():
+	next_indicator.modulate.a = 1
+	
+func hide_indicator():
+	next_indicator.modulate.a = 0

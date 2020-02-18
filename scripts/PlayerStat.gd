@@ -1,5 +1,12 @@
 extends PanelContainer
 
-func set_player(player: Node):
-	$VBoxContainer/Name.text = player.get_name()
-	$VBoxContainer/HP/Value.text = "%d/%d" % [player.curr_hp, player.max_hp]
+
+var player setget set_player
+
+
+func set_player(new_player: Node):
+	$VBoxContainer/Name.text = new_player.get_name()
+	$VBoxContainer/HP/Value.text = "%d/%d" % [
+		new_player.stats.max_hp,
+		new_player.stats.max_hp
+		]

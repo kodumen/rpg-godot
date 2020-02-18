@@ -21,8 +21,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
+PcManager="*res://scripts/PcManager.gd"
 Messenger="*res://scripts/Messenger.gd"
 ControlManager="*res://scripts/ControlManager.gd"
+BattleManager="*res://scripts/BattleManager.gd"
 
 [debug]
 

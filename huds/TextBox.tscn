@@ -31,7 +31,6 @@ percent_visible = 0.0
 max_lines_visible = 2
 
 [node name="NextIndicator" type="TextureRect" parent="VBoxContainer"]
-visible = false
 margin_left = 584.0
 margin_top = 34.0
 margin_right = 600.0

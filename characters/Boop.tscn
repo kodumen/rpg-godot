@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://characters/Boop.gd" type="Script" id=1]
+[ext_resource path="res://scripts/stats.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+max_hp = 60
+spd = 6
+atk = 5
+def = 9
+
+[node name="Boop" type="Node"]
+script = ExtResource( 1 )
+stats = SubResource( 1 )
