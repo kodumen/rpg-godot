@@ -7,6 +7,8 @@ func _ready():
 	
 	BattleManager.add_enemy($Enemy1)
 	
+	BattleManager.setup_finished()
+	
 	Messenger.queue(["A monster appeared!"], funcref(self, "start_battle"))
 
 

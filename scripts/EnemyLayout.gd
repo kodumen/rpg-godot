@@ -3,7 +3,7 @@ extends Node2D
 
 func _ready():
 # warning-ignore:return_value_discarded
-	BattleManager.connect("started", self, "populate")
+	BattleManager.connect("setup_finished", self, "populate")
 
 
 func populate():
