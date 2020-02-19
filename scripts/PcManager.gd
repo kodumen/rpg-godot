@@ -18,9 +18,9 @@ func _ready():
 	p2.name = "p2"
 	p2.stats = Stats.new()
 	p2.stats.max_hp = 100
-	p2.stats.spd = 9
+	p2.stats.spd = 6
 	p2.stats.atk = 6
-	p2.stats.def = 5
+	p2.stats.def = 8
 	
 	add_child(p1)
 	add_child(p2)
