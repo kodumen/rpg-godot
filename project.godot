@@ -8,9 +8,56 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Battler",
+"language": "GDScript",
+"path": "res://combat_arena/battlers/Battler.gd"
+}, {
+"base": "Node",
+"class": "BeginTurn",
+"language": "GDScript",
+"path": "res://combat_arena/states/BeginTurn.gd"
+}, {
+"base": "Node2D",
+"class": "CombatArena",
+"language": "GDScript",
+"path": "res://combat_arena/CombatArena.gd"
+}, {
+"base": "Node2D",
+"class": "EnemyFormation",
+"language": "GDScript",
+"path": "res://combat_arena/enemy_formation/EnemyFormation.gd"
+}, {
+"base": "CanvasLayer",
+"class": "GUI",
+"language": "GDScript",
+"path": "res://combat_arena/gui/GUI.gd"
+}, {
+"base": "PanelContainer",
+"class": "PlayerPanel",
+"language": "GDScript",
+"path": "res://combat_arena/gui/player_panel/PlayerPanel.gd"
+}, {
+"base": "Node",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://combat_arena/stats/Stats.gd"
+}, {
+"base": "Node2D",
+"class": "_CombatArenaTest",
+"language": "GDScript",
+"path": "res://combat_arena/_CombatArenaTest.gd"
+} ]
 _global_script_class_icons={
-
+"Battler": "",
+"BeginTurn": "",
+"CombatArena": "",
+"EnemyFormation": "",
+"GUI": "",
+"PlayerPanel": "",
+"Stats": "",
+"_CombatArenaTest": ""
 }
 
 [application]

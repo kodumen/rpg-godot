@@ -5,7 +5,7 @@
 [ext_resource path="res://characters/Boop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/textures/monster_battle.png" type="Texture" id=4]
 [ext_resource path="res://huds/BattleGui.tscn" type="PackedScene" id=5]
-[ext_resource path="res://huds/TextBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://combat_arena/gui/textbox/TextBox.tscn" type="PackedScene" id=6]
 
 [node name="_BattleTest" type="Node2D"]
 script = ExtResource( 1 )
