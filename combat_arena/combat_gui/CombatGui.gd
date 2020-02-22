@@ -1,15 +1,17 @@
 extends CanvasLayer
 
-class_name GUI
+class_name CombatGui
 
 
 signal closed_textbox
 
 
-const PlayerPanel = preload("res://combat_arena/gui/player_panel/PlayerPanel.tscn")
+const PlayerPanel = preload("res://combat_arena/combat_gui/player_panel/PlayerPanel.tscn")
 
 onready var text_box = $MarginContainer/TextBox
 onready var player_panels = $MarginContainer2/VBoxContainer/PlayerPanels
+onready var turn_panel = $MarginContainer2/VBoxContainer/TurnPanel
+onready var action_menu = $MarginContainer2/VBoxContainer/ActionMenu
 
 
 func initialize_player_components(players: Array):
@@ -25,6 +27,18 @@ func show_text(message: String):
 
 func show_player_panels():
 	player_panels.visible = true
+
+
+func show_turn_panel(battler: Battler = null):
+	if battler != null:
+		turn_panel.battler = battler
+	turn_panel.visible = true
+
+
+func show_actions(battler: Battler = null):
+	if battler != null:
+		action_menu.battler = battler
+	action_menu.show()
 
 
 func _on_TextBox_closed():

@@ -1,8 +1,9 @@
 extends Node
 
-class_name BeginTurn
 
-
-func handle(combat_arena: CombatArena):
-	combat_arena.show_player_panels()
-	
+func handle(gui: CombatGui, turn_queue: TurnQueue):
+	turn_queue.next()
+	var battler = turn_queue.get_current()
+	gui.show_turn_panel(battler)
+	gui.show_player_panels()
+	# TODO: Apply stats adjustments

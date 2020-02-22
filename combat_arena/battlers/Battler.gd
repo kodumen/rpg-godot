@@ -6,6 +6,7 @@ class_name Battler
 var stats: Node
 var max_hp: int setget , get_max_hp
 var curr_hp: int setget , get_curr_hp
+var spd: int setget , get_spd
 
 
 func initialize(node: Node):
@@ -23,6 +24,9 @@ func initialize_sprite(node: Node):
 
 func get_max_hp() -> int:
 	return stats.max_hp
+	
+func get_spd() -> int:
+	return stats.spd
 
 
 func get_curr_hp() -> int:
