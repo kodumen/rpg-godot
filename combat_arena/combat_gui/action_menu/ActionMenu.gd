@@ -1,66 +1,51 @@
-extends PanelContainer
+extends HBoxContainer
 
 class_name ActionMenu
 
 
-onready var timer: Timer = $Timer
+signal selected_action
+
+
+const ActionItem = preload("res://combat_arena/combat_gui/action_menu/ActionItem.tscn")
+
+onready var main = $Main
+onready var sub = $Sub
 
 var battler: Battler
-var accept_input = false
-var items: Array
-var curr_item: int = 0 setget set_curr_item
-
-
-func _ready():
-	items = $VBoxContainer.get_children()
-
-
-func _process(delta):
-	if pressed_up():
-		self.curr_item -= 1
-	if pressed_down():
-		self.curr_item += 1
-	
-	if just_released():
-		accept_input = true
-		timer.stop()
 
 
 func show():
 	visible = true
-	self.curr_item = 0
-	accept_input = true
+	main.initialize()
+	sub.visible = false
 
 
-func set_curr_item(new_curr_item: int):
-	items[curr_item].unfocus()
+func _on_Main_selected(action):
+	match action:
+		"skill":
+			show_skill_menu()
+		"item":
+			print("alsdkfsd")
+		"run":
+			print("sdfsdf")
+
+
+func show_skill_menu():
+	var skills = []
 	
-	if new_curr_item < 0:
-		curr_item = items.size() - 1
-	elif new_curr_item >= items.size():
-		curr_item = 0
-	else:
-		curr_item = new_curr_item
+	for battler_skill in battler.skills:
+		var action_item = ActionItem.instance()
+		action_item.label = battler_skill.display_name
+		action_item.action = battler_skill.skill_name
+		skills.push_back(action_item)
 	
-	items[curr_item].focus()
-	accept_input = false
-	timer.start()
+	sub.items = skills
+	sub.initialize()
+	sub.visible = true
+	main.focused = false
 
 
-func pressed_up() -> bool:
-	return accept_input and Input.is_action_pressed("up")
-
-
-func pressed_down() -> bool:
-	return accept_input and Input.is_action_pressed("down")
-
-
-func just_released() -> bool:
-	return not accept_input and (
-		Input.is_action_just_released("up")
-		or Input.is_action_just_released("down")
-	)
-
-
-func _on_Timer_timeout():
-	accept_input = true
+func _on_Sub_cancelled():
+	sub.focused = false
+	sub.visible = false
+	main.focused = true

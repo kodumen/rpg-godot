@@ -4,6 +4,7 @@ class_name ActionItem
 
 
 export var label: String
+export var action: String
 
 onready var indicator: TextureRect = $Indicator
 

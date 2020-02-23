@@ -49,13 +49,16 @@ visible = false
 [node name="ActionMenu" parent="MarginContainer2/VBoxContainer" instance=ExtResource( 4 )]
 visible = false
 margin_left = 0.0
-margin_top = 346.0
+margin_top = 354.0
 margin_right = 72.0
-margin_bottom = 456.0
+margin_bottom = 464.0
 
 [node name="PlayerPanels" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
 visible = false
+margin_top = 464.0
 margin_right = 624.0
+margin_bottom = 464.0
 size_flags_vertical = 8
 custom_constants/separation = 8
 [connection signal="closed" from="MarginContainer/TextBox" to="." method="_on_TextBox_closed"]
+[connection signal="selected_action" from="MarginContainer2/VBoxContainer/ActionMenu" to="." method="_on_ActionMenu_selected_action"]

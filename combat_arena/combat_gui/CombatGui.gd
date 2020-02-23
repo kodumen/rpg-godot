@@ -4,6 +4,7 @@ class_name CombatGui
 
 
 signal closed_textbox
+signal selected_action
 
 
 const PlayerPanel = preload("res://combat_arena/combat_gui/player_panel/PlayerPanel.tscn")
@@ -43,3 +44,7 @@ func show_actions(battler: Battler = null):
 
 func _on_TextBox_closed():
 	emit_signal("closed_textbox")
+
+
+func _on_ActionMenu_selected_action():
+	emit_signal("selected_action")
