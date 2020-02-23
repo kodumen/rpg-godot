@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 skill_name = "heal"
 display_name = "Heal"
+target_type = "players"

@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://combat_arena/combat_gui/player_panel/PlayerPanel.gd"
 }, {
 "base": "Node",
+"class": "Selection",
+"language": "GDScript",
+"path": "res://combat_arena/combat_gui/action_menu/SelectedAction.gd"
+}, {
+"base": "Node",
 "class": "Stats",
 "language": "GDScript",
 "path": "res://combat_arena/battlers/stats/Stats.gd"
@@ -84,6 +89,7 @@ _global_script_class_icons={
 "EnemyFormation": "",
 "LearnedSkill": "",
 "PlayerPanel": "",
+"Selection": "",
 "Stats": "",
 "TurnPanel": "",
 "TurnQueue": "",

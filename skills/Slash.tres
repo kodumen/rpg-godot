@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 skill_name = "slash"
 display_name = "Slash"
+target_type = "enemies"

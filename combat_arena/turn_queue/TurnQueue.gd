@@ -25,3 +25,11 @@ func next():
 		
 func get_current() -> Battler:
 	return queue[curr_index]
+	
+	
+func get_battlers(battler_names: Array) -> Array:
+	var battlers = []
+	for battler in queue:
+		if battler_names.has(battler.get_name()):
+			battlers.push_back(battler)
+	return battlers

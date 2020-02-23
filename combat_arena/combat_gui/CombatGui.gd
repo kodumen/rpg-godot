@@ -16,14 +16,22 @@ onready var action_menu = $MarginContainer2/VBoxContainer/ActionMenu
 
 
 func initialize_player_components(players: Array):
+	action_menu.players = players
 	for player in players:
 		var panel = PlayerPanel.instance()
 		player_panels.add_child(panel)
 		panel.player = player
+	
+
+func initialize_enemy_components(enemies: Array):
+	action_menu.enemies = enemies
 
 
 func show_text(message: String):
 	text_box.display(message)
+	turn_panel.visible = false
+	player_panels.visible = false
+	action_menu.hide()
 	
 
 func show_player_panels():
@@ -46,5 +54,5 @@ func _on_TextBox_closed():
 	emit_signal("closed_textbox")
 
 
-func _on_ActionMenu_selected_action():
-	emit_signal("selected_action")
+func _on_ActionMenu_selected_action(action):
+	emit_signal("selected_action", action)

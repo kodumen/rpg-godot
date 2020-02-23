@@ -33,9 +33,17 @@ func initialize_skills(node: Node):
 func get_max_hp() -> int:
 	return stats.max_hp
 	
+	
 func get_spd() -> int:
 	return stats.spd
 
 
 func get_curr_hp() -> int:
 	return stats.curr_hp
+	
+	
+func get_skill(skill_name: String) -> LearnedSkill:
+	for skill in skills:
+		if skill.skill_name == skill_name:
+			return skill
+	return null

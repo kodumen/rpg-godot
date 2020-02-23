@@ -39,6 +39,7 @@ func set_enemies(enemy_nodes: Array):
 		battler.initialize(enemy)
 		enemies.push_back(battler)
 	enemy_formation.initialize(enemies)
+	gui.initialize_enemy_components(enemies)
 	
 	
 # Start the combat loop.

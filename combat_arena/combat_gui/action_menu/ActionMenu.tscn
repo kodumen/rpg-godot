@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/textures/panel.tres" type="StyleBox" id=1]
+[ext_resource path="res://combat_arena/combat_gui/action_menu/SelectedAction.gd" type="Script" id=1]
 [ext_resource path="res://combat_arena/combat_gui/action_menu/ActionMenu.gd" type="Script" id=2]
-[ext_resource path="res://combat_arena/combat_gui/action_menu/Menu.gd" type="Script" id=3]
 [ext_resource path="res://combat_arena/combat_gui/action_menu/ActionItem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://combat_arena/combat_gui/action_menu/Menu.tscn" type="PackedScene" id=5]
 
 [node name="ActionMenu" type="HBoxContainer"]
 margin_left = 96.0
@@ -17,59 +17,53 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Main" type="PanelContainer" parent="."]
+[node name="Main" parent="." instance=ExtResource( 5 )]
+margin_left = 0.0
+margin_top = 30.0
 margin_right = 72.0
-margin_bottom = 110.0
+margin_bottom = 80.0
 size_flags_vertical = 8
-custom_styles/panel = ExtResource( 1 )
-script = ExtResource( 3 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+[node name="Skill" parent="Main" instance=ExtResource( 4 )]
 margin_left = 12.0
 margin_top = 12.0
 margin_right = 60.0
-margin_bottom = 98.0
-
-[node name="Skill" parent="Main/VBoxContainer" instance=ExtResource( 4 )]
-margin_right = 48.0
+margin_bottom = 38.0
 label = "Skill"
 action = "skill"
 
-[node name="Item" parent="Main/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 30.0
-margin_right = 48.0
-margin_bottom = 56.0
+[node name="Item" parent="Main" instance=ExtResource( 4 )]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 60.0
+margin_bottom = 38.0
 label = "Item"
 action = "item"
 
-[node name="Run" parent="Main/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 60.0
-margin_right = 48.0
-margin_bottom = 86.0
+[node name="Run" parent="Main" instance=ExtResource( 4 )]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 60.0
+margin_bottom = 38.0
 label = "Run"
 action = "run"
 
-[node name="Timer" type="Timer" parent="Main"]
-wait_time = 0.3
-
-[node name="Sub" type="PanelContainer" parent="."]
+[node name="Sub" parent="." instance=ExtResource( 5 )]
 margin_left = 80.0
-margin_top = 86.0
+margin_top = 56.0
 margin_right = 104.0
-margin_bottom = 110.0
+margin_bottom = 80.0
 size_flags_vertical = 8
-custom_styles/panel = ExtResource( 1 )
-script = ExtResource( 3 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Sub"]
-margin_left = 12.0
-margin_top = 12.0
-margin_right = 12.0
-margin_bottom = 12.0
+[node name="Target" parent="." instance=ExtResource( 5 )]
+margin_top = 56.0
+margin_bottom = 80.0
+size_flags_vertical = 8
 
-[node name="Timer" type="Timer" parent="Sub"]
-wait_time = 0.3
+[node name="SelectedAction" type="Node" parent="."]
+script = ExtResource( 1 )
 [connection signal="selected" from="Main" to="." method="_on_Main_selected"]
-[connection signal="timeout" from="Main/Timer" to="Main" method="_on_Timer_timeout"]
 [connection signal="cancelled" from="Sub" to="." method="_on_Sub_cancelled"]
-[connection signal="timeout" from="Sub/Timer" to="Sub" method="_on_Timer_timeout"]
+[connection signal="selected" from="Sub" to="." method="_on_Sub_selected"]
+[connection signal="cancelled" from="Target" to="." method="_on_Target_cancelled"]
+[connection signal="selected" from="Target" to="." method="_on_Target_selected"]

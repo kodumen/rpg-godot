@@ -15,7 +15,12 @@ var curr_item: int = 0 setget set_curr_item
 
 
 func _ready():
-	items = $VBoxContainer.get_children()
+	for child in get_children():
+		if child is ActionItem:
+			remove_child(child)
+			container.add_child(child)
+	
+	items = container.get_children()
 
 
 func _process(delta):
@@ -35,6 +40,7 @@ func _process(delta):
 		emit_signal("selected", items[curr_item].action)
 		
 	if pressed_cancel():
+		self.curr_item = 0
 		emit_signal("cancelled")
 
 
